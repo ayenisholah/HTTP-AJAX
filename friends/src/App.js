@@ -10,7 +10,16 @@ class App extends React.Component {
       friends: []
     };
   }
-  
+  fetch = () => {
+    axios.get('http://localhost:5000/friends')
+      .then(response => {
+        this.setState({ friends: response.data })
+      })
+      .catch(error => {
+        console.log(error.message)
+      })
+  }
+ 
   render() {
     return (
       <div className="App">
