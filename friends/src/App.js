@@ -19,6 +19,11 @@ class App extends React.Component {
         console.log(error.message)
       })
   }
+
+  componentDidMount() {
+    this.fetch();
+  }
+ 
  
   render() {
     return (
