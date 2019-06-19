@@ -1,6 +1,9 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
+
+import Home from './Components/Home'
 
 
 class App extends React.Component {
@@ -24,11 +27,16 @@ class App extends React.Component {
     this.fetch();
   }
  
- 
   render() {
     return (
       <div className="App">
         <h1>HTTP /AJAX Project</h1>
+        <Link to="/">Home</Link>
+        <div>
+          <Route
+            exact path="/"
+            component ={Home} />
+        </div>
       </div>
     )
   }
