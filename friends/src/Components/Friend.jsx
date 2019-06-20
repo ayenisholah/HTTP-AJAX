@@ -8,13 +8,12 @@ function Friend(props) {
       <h2>{friend.name}</h2>
       <h4>{friend.age}</h4>
       <h4>{friend.email}</h4>
-      <button className="md-button"
-        onClick={() => props.deleteFriend(friend.id)}
+      <button className="md-button" onClick={() => props.deleteFriend(friend.id)}
       >
         Delete Friend
       </button>
       <button className="md-button"
-        onClick={() => props.populateUpdate(friend)}
+        onClick={() => props.populateUpdateForm(friend)}
       >
         Update Friend
       </button>
