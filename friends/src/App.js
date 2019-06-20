@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, NavLink } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 
@@ -117,9 +117,13 @@ class App extends React.Component {
         <h3>Friend App</h3>
         <nav>
         <Link className="home-link" to="/">Home</Link>
-        <Link to="/friend-list">Friends List</Link>
+        <NavLink to="/add-friend">
+          <button className="md-button">
+            Add Friend
+          </button>
+        </NavLink>
+        <NavLink to="/friend-list">Friends List</NavLink>
         </nav>
-        <div>
           <Route
             exact path="/"
             component ={Home} />
@@ -127,8 +131,7 @@ class App extends React.Component {
             exact
             path="/friend-list"
             render={(props) => <FriendList {...props} friends={this.state.friends} /> } 
-            />
-
+          />
           <Route
             path="/friend-list/:id"
             render={(props) =>
@@ -163,7 +166,6 @@ class App extends React.Component {
           }
         />
         </div>
-      </div>
     )
   }
 }
