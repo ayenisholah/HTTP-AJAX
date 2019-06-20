@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 
 import Home from './Components/Home'
+import FriendList from './Components/FriendList'
 
 
 class App extends React.Component {
@@ -31,11 +32,19 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>HTTP /AJAX Project</h1>
+        <nav>
         <Link to="/">Home</Link>
+        <Link to="/friend-list">Friends List</Link>
+        </nav>
         <div>
           <Route
             exact path="/"
             component ={Home} />
+          <Route
+            exact
+            path="/friend-list"
+            render={(props) => <FriendList {...props} friends={this.state.friends} /> } 
+            />
         </div>
       </div>
     )
