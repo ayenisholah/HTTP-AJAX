@@ -6,7 +6,7 @@ function FriendList(props) {
     <div className="friend-list-wrapper">
       {
         props.friends.map(friend => (
-          <Link className="friend-link" to={`/friend-list/${friend.id}`}>
+          <Link className="friend-link" to={`/friend-list/${friend.id}`} key={friend.id}>
             <div className="friend-card">
               <p>{friend.name}</p>
               <p>{friend.age}</p>
