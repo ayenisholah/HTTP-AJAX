@@ -52,6 +52,13 @@ class App extends React.Component {
     this.updateFriend();
   }
 
+  populateUpdateForm = (friend) => {
+    this.setState({
+      friendToUpdate: friend
+    });
+    this.props.history.push('/update-friend')
+  }
+
   addFriend = () => {
     axios
       .post('http://localhost:5000/friends', this.state.friendToAdd)
@@ -107,17 +114,6 @@ class App extends React.Component {
             render={(props) => <FriendList {...props} friends={this.state.friends} /> } 
             />
           <Route
-            path="/update-item"
-            render={(props) =>
-              <UpdateFriendForm
-                {...props}
-                friendToUpdate={this.state.friendToUpdate}
-                onFormChange={this.onFormChange}
-                onFormSubmit={this.onFormSubmit}
-              />
-            }
-          />
-          <Route
             path="/add-friend"
             render={(props) =>
               <AddFriendForm
@@ -128,6 +124,17 @@ class App extends React.Component {
               />
             }
           />
+          <Route
+          path="/update-item"
+          render={(props) =>
+            <UpdateFriendForm
+              {...props}
+              friendToUpdate={this.state.friendToUpdate}
+              onFormChange={this.onFormChange}
+              onFormSubmit={this.onFormSubmit}
+            />
+          }
+        />
         </div>
       </div>
     )

@@ -5,12 +5,13 @@ class UpdateFriendForm extends React.Component {
     return (
       <div className="form-container">
         <h2>Update Friend</h2>
-        <form >
+        <form onSubmit={(event) => this.props.onFormSubmit(event, 'updateForm')} >
           <input
             type="text"
             name="name"
             placeholder="Your name..."
             value={this.props.friendToUpdate.name}
+            onChange={(event) => this.props.onFormChange(event, 'friendToUpdate')}
           />
           <div className="baseline" />
 
@@ -19,6 +20,7 @@ class UpdateFriendForm extends React.Component {
             name="age"
             placeholder="Age"
             value={this.props.friendToUpdate.age}
+            onChange={(event) => this.props.onFormChange(event, 'friendToUpdate')}
           />
           <div className="baseline" />
 
@@ -27,6 +29,7 @@ class UpdateFriendForm extends React.Component {
             name="email"
             placeholder="Email here"
             value={this.props.friendToUpdate.email}
+            onChange={(event) => this.props.onFormChange(event, 'friendToUpdate')}
           />
           <div className="baseline" />
 
