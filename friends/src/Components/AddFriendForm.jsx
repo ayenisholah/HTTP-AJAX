@@ -10,6 +10,7 @@ class AddFriendForm extends React.Component {
             type="text"
             name="name"
             placeholder="Your name..."
+            onChange={(event) => this.props.onFormChange(event, 'friendToAdd')}
           />
           <div className="baseline" />
 
@@ -17,6 +18,7 @@ class AddFriendForm extends React.Component {
             type="number"
             name="age"
             placeholder="Age"
+            onChange={(event) => this.props.onFormChange(event, 'friendToAdd')}
           />
           <div className="baseline" />
 
@@ -24,6 +26,7 @@ class AddFriendForm extends React.Component {
             type="email"
             name="email"
             placeholder="Email here"
+            onChange={(event) => this.props.onFormChange(event, 'friendToAdd')}
           />
           <div className="baseline" />
 
