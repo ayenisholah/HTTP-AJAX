@@ -95,13 +95,27 @@ class App extends React.Component {
       });
   }
 
+  deleteFriend = (id) => {
+    axios
+      .delete(`http://localhost:5000/friends/${id}`)
+      .then(res => {
+        this.props.history.replace('/friend-list');
+        this.setState({
+          friends: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>HTTP /AJAX Project</h1>
         <h3>Friend App</h3>
         <nav>
-        <Link to="/">Home</Link>
+        <Link className="home-link" to="/">Home</Link>
         <Link to="/friend-list">Friends List</Link>
         </nav>
         <div>
@@ -125,7 +139,7 @@ class App extends React.Component {
             }
           />
           <Route
-          path="/update-item"
+          path="/update-friend"
           render={(props) =>
             <UpdateFriendForm
               {...props}
