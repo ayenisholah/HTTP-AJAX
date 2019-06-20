@@ -17,7 +17,8 @@ class App extends React.Component {
         name: '',
         age: null,
         email: ''
-      }
+      },
+      friendToUpdate: null
     };
   }
   
@@ -46,6 +47,8 @@ class App extends React.Component {
     if(formName === 'addForm') {
       this.addFriend();
     }
+    else if (formName === 'updateForm')
+    this.updateFriend();
   }
 
   addFriend = () => {
@@ -61,6 +64,23 @@ class App extends React.Component {
           }
         });
         this.props.history.push('/friend-list')
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  updateFriend = () => {
+    const friend = this.state.friendToUpdate;
+
+    axios
+      .put(`http://localhost:5000/friends/${friend.id}`, friend)
+      .then(res => {
+        this.props.history.replace('/friend-list');
+        this.setState({
+          friends: res.data,
+          friendToUpdate: null
+        });
       })
       .catch(err => {
         console.log(err);
