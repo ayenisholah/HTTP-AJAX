@@ -41,6 +41,13 @@ class App extends React.Component {
     }));
   }
 
+  onFormSubmit = (event, formName) => {
+    event.preventDefault();
+    if(formName === 'addForm') {
+      this.addFriend();
+    }
+  }
+
   addFriend = () => {
     axios
       .post('http://localhost:5000/friends', this.state.friendToAdd)
@@ -85,6 +92,7 @@ class App extends React.Component {
                 {...props}
                 friendToAdd={this.state.friendToAdd}
                 onFormChange={this.onFormChange}
+                onFormSubmit={this.onFormSubmit}
               />
             }
           />
