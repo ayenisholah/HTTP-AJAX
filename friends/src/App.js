@@ -107,7 +107,7 @@ class App extends React.Component {
       })
       .catch(err => {
         console.log(err);
-      })
+      });
   }
 
   render() {
@@ -166,7 +166,7 @@ class App extends React.Component {
           }
         />
         </div>
-    )
+    );
   }
 }
 
