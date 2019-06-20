@@ -49,7 +49,15 @@ class App extends React.Component {
             path="/friend-list"
             render={(props) => <FriendList {...props} friends={this.state.friends} /> } 
             />
-          
+          <Route
+            path="/add-friend"
+            render={(props) =>
+              <AddFriendForm
+                {...props}
+                friendToAdd={this.state.friendToAdd}
+              />
+            }
+          />
         </div>
       </div>
     )
