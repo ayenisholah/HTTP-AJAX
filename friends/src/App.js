@@ -30,7 +30,26 @@ class App extends React.Component {
         console.log(error);
       })
   }
- 
+
+  addFriend = () => {
+    axios
+      .post('http://localhost:5000/friends', this.state.friendToAdd)
+      .then(res => {
+        this.setState({
+          friends: res.data,
+          friendToAdd: {
+            name: '',
+            age: null,
+            email: ''
+          }
+        });
+        this.props.history.push('/friend-list')
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
