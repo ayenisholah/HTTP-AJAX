@@ -3,12 +3,10 @@ import React from 'react';
 function Home(props) {
   return (
    <form>
-      Name:
-      <input type='text' placeholder='name'/>
-      Age: 
-      <input type='number' placeholder='age'/>
-      Email:
-      <input type='email' placeholder='e.g example@example.com'/>
+    <input type='text' placeholder='Your name...'/>
+    <input type='number' placeholder='Your Age'/>
+    <input type='email' placeholder='Email'/>
+    <input type="submit" value="Submit"/>
    </form>
   );
 }
