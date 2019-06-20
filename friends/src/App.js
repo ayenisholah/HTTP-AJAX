@@ -5,33 +5,37 @@ import axios from 'axios';
 
 import Home from './Components/Home'
 import FriendList from './Components/FriendList'
+import AddFriendForm from './Components/AddFriendForm';
 
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      friends: []
+      friends: [],
+      friendToAdd: {
+        name: '',
+        age: null,
+        email: ''
+      }
     };
   }
-  fetch = () => {
+  
+  componentDidMount() {
     axios.get('http://localhost:5000/friends')
       .then(response => {
         this.setState({ friends: response.data })
       })
       .catch(error => {
-        console.log(error.message)
+        console.log(error);
       })
-  }
-
-  componentDidMount() {
-    this.fetch();
   }
  
   render() {
     return (
       <div className="App">
         <h1>HTTP /AJAX Project</h1>
+        <h3>Friend App</h3>
         <nav>
         <Link to="/">Home</Link>
         <Link to="/friend-list">Friends List</Link>
@@ -45,6 +49,7 @@ class App extends React.Component {
             path="/friend-list"
             render={(props) => <FriendList {...props} friends={this.state.friends} /> } 
             />
+          
         </div>
       </div>
     )
