@@ -3,7 +3,7 @@ import React from 'react';
 function Home(props) {
   return (
    <form>
-      Name: 
+      Name:
       <input type='text' placeholder='name'/>
       Age: 
       <input type='number' placeholder='age'/>
