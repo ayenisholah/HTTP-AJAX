@@ -6,6 +6,7 @@ import axios from 'axios';
 import Home from './Components/Home'
 import FriendList from './Components/FriendList'
 import AddFriendForm from './Components/AddFriendForm';
+import UpdateFriendForm from './Components/UpdateFriendForm';
 
 
 class App extends React.Component {
@@ -105,6 +106,17 @@ class App extends React.Component {
             path="/friend-list"
             render={(props) => <FriendList {...props} friends={this.state.friends} /> } 
             />
+          <Route
+            path="/update-item"
+            render={(props) =>
+              <UpdateFriendForm
+                {...props}
+                friendToUpdate={this.state.friendToUpdate}
+                onFormChange={this.onFormChange}
+                onFormSubmit={this.onFormSubmit}
+              />
+            }
+          />
           <Route
             path="/add-friend"
             render={(props) =>
