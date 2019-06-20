@@ -31,6 +31,16 @@ class App extends React.Component {
       })
   }
 
+  onFormChange = (event, sliceOfState) => {
+    event.persist();
+    this.setState(prevState => ({
+      [sliceOfState]: {
+        ...prevState[sliceOfState],
+        [event.target.name]: event.target.value
+      }
+    }));
+  }
+
   addFriend = () => {
     axios
       .post('http://localhost:5000/friends', this.state.friendToAdd)
@@ -74,6 +84,7 @@ class App extends React.Component {
               <AddFriendForm
                 {...props}
                 friendToAdd={this.state.friendToAdd}
+                onFormChange={this.onFormChange}
               />
             }
           />
